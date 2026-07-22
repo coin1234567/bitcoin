@@ -1,0 +1,14 @@
+[
+  {"name": "中本聪", "en": "Satoshi Nakamoto", "role": "比特币创始人", "desc": "2008年发布比特币白皮书，2009年上线比特币网络。身份至今成谜。"},
+  {"name": "Hal Finney", "role": "密码学家", "desc": "第一个收到比特币交易的人，PGP加密核心开发者。2014年因病去世。"},
+  {"name": "Nick Szabo", "role": "密码学家/法律学者", "desc": "智能合约概念之父，Bit Gold 发明者，被高度怀疑是中本聪。"},
+  {"name": "Adam Back", "role": "Blockstream CEO", "desc": "Hashcash 发明者，Proof-of-Work 先驱，Blockstream 联合创始人。"},
+  {"name": "Michael Saylor", "role": "Strategy 创始人", "desc": "最具影响力的比特币倡导者之一，公司持有超40万枚 BTC。"},
+  {"name": "Jack Dorsey", "role": "Block CEO", "desc": "Twitter 创始人，Block 创始人，比特币坚定支持者。"},
+  {"name": "Andreas Antonopoulos", "role": "比特币布道者", "desc": "《精通比特币》作者，比特币科普教育第一人。"},
+  {"name": "Saifedean Ammous", "role": "经济学家", "desc": "《比特币本位》作者，奥地利学派经济学家。"},
+  {"name": "Lyn Alden", "role": "宏观分析师", "desc": "《Broken Money》作者，货币体系研究专家。"},
+  {"name": "Gregory Maxwell", "role": "比特币核心开发者", "desc": "Bitcoin Core 核心贡献者，Blockstream CTO。"},
+  {"name": "Pieter Wuille", "role": "比特币核心开发者", "desc": "比特币最活跃贡献者之一，SegWit、Taproot 共同作者。"},
+  {"name": "Jameson Lopp", "role": "Casa CTO", "desc": "比特币安全专家，casa.io 联合创始人。"}
+]

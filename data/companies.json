@@ -1,0 +1,11 @@
+[
+  {"title": "Strategy", "url": "https://www.strategy.com", "desc": "最大比特币持仓上市公司"},
+  {"title": "Block", "url": "https://block.xyz", "desc": "Jack Dorsey 创办的比特币公司"},
+  {"title": "Strike", "url": "https://strike.me", "desc": "全球比特币支付应用"},
+  {"title": "River", "url": "https://river.com", "desc": "比特币交易所与金融服务"},
+  {"title": "Swan", "url": "https://www.swan.com", "desc": "比特币定投服务平台"},
+  {"title": "Casa", "url": "https://casa.io", "desc": "比特币多签自托管方案"},
+  {"title": "Fold", "url": "https://foldapp.com", "desc": "比特币返利购物应用"},
+  {"title": "Unchained", "url": "https://unchained.com", "desc": "比特币金融服务与托管"},
+  {"title": "Blockstream", "url": "https://blockstream.com", "desc": "比特币基础设施公司"}
+]

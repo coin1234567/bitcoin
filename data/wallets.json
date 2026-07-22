@@ -1,0 +1,12 @@
+[
+  {"title": "Sparrow Wallet", "url": "https://sparrowwallet.com", "desc": "桌面端高级比特币钱包"},
+  {"title": "Electrum", "url": "https://electrum.org", "desc": "老牌轻量级比特币钱包"},
+  {"title": "BlueWallet", "url": "https://bluewallet.io", "desc": "移动端比特币 & Lightning 钱包"},
+  {"title": "Phoenix", "url": "https://phoenix.acinq.co", "desc": "原生 Lightning 钱包"},
+  {"title": "Zeus", "url": "https://zeusln.app", "desc": "远程 Lightning 节点管理"},
+  {"title": "Aqua", "url": "https://aquawallet.io", "desc": "支持 Liquid 的钱包"},
+  {"title": "Coldcard", "url": "https://coldcard.com", "desc": "最强硬件冷钱包"},
+  {"title": "BitBox02", "url": "https://bitbox.swiss", "desc": "瑞士开源硬件钱包"},
+  {"title": "Blockstream Jade", "url": "https://blockstream.com/jade", "desc": "Blockstream 硬件钱包"},
+  {"title": "Trezor", "url": "https://trezor.io", "desc": "最早硬件钱包品牌"}
+]

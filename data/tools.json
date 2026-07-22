@@ -1,0 +1,9 @@
+[
+  {"title": "Bitcoin Logo", "url": "https://bitcoinlogo.org", "desc": "比特币 Logo 免费下载"},
+  {"title": "Bitcoin Only", "url": "https://bitcoin-only.com", "desc": "比特币专属工具集"},
+  {"title": "BTC Map", "url": "https://btcmap.org", "desc": "全球接受比特币的商家地图"},
+  {"title": "CoinATMRadar", "url": "https://coinatmradar.com", "desc": "全球比特币 ATM 地图"},
+  {"title": "Bitrawr", "url": "https://bitrawr.com", "desc": "比特币手续费估算工具"},
+  {"title": "TX Street", "url": "https://txstreet.com/v/btc", "desc": "比特币交易可视化"},
+  {"title": "HODL Waves", "url": "https://unchained.com/hodlwaves", "desc": "比特币 HODL 波浪图"}
+]
