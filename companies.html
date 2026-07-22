@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比特币公司 — 比特币资源导航站(南宫远版)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #F7931A; --orange-ghost: rgba(247,147,26,0.08);
+            --primary-gradient: linear-gradient(135deg, #F7931A 0%, #E67E22 100%);
+            --bg-primary: #FFF8F0; --bg-secondary: #FFF0E0; --bg-card: #FFFFFF;
+            --bg-sidebar: rgba(255,255,255,0.95); --text-primary: #2D1A00;
+            --text-secondary: #805500; --text-muted: #B37400; --border-color: #F0D5B8;
+            --shadow-md: 0 4px 12px rgba(247,147,26,0.12);
+            --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [data-theme="dark"] {
+            --bg-primary: #0D0D12; --bg-secondary: #16161E; --bg-card: #1A1A24;
+            --bg-sidebar: rgba(13,13,18,0.97); --text-primary: #F5F5F7;
+            --text-secondary: #C0B8A8; --text-muted: #9A9070;
+            --border-color: rgba(247,147,26,0.12); --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+            --orange-ghost: rgba(247,147,26,0.12);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; min-height: 100vh; transition: var(--transition); }
+        header { background: var(--bg-sidebar); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); padding: 0.75rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 800; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .back-link { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .back-link:hover { color: var(--orange); }
+        .theme-toggle { width: 40px; height: 40px; border: 2px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); cursor: pointer; font-size: 1.15rem; transition: var(--transition); display: flex; align-items: center; justify-content: center; }
+        .theme-toggle:hover { border-color: var(--orange); }
+        main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .page-title { font-size: 2rem; font-weight: 800; margin-bottom: 0.25rem; }
+        .page-subtitle { color: var(--text-secondary); margin-bottom: 2rem; }
+        .company-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+        .company-card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-md); transition: var(--transition); border: 1px solid var(--border-color); text-decoration: none; display: block; }
+        .company-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(247,147,26,0.2); border-color: var(--orange); }
+        .company-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .company-name { font-weight: 700; font-size: 1.15rem; color: var(--text-primary); }
+        .company-desc { font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.35rem; }
+        .company-url { font-size: 0.75rem; color: var(--orange); margin-top: 0.5rem; word-break: break-all; }
+        footer { text-align: center; padding: 2rem; color: var(--text-secondary); font-size: 0.85rem; border-top: 1px solid var(--border-color); }
+        @media (max-width: 600px) { .company-grid { grid-template-columns: 1fr; } main { padding: 1rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">₿ 比特币资源导航站</a>
+            <a href="index.html" class="back-link">← 返回首页</a>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </header>
+    <main>
+        <h1 class="page-title">🏢 比特币公司</h1>
+        <p class="page-subtitle">推动比特币生态发展的核心企业</p>
+        <div class="company-grid" id="companyGrid"></div>
+    </main>
+    <footer>© 2026 比特币资源导航站(南宫远版) &middot; btc.ngy123.com</footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('data/companies.json');
+                const data = await res.json();
+                document.getElementById('companyGrid').innerHTML = data.map(c => `
+                    <a href="${c.url}" target="_blank" rel="noopener" class="company-card">
+                        <div class="company-icon">🏢</div>
+                        <div class="company-name">${c.title}</div>
+                        <div class="company-desc">${c.desc}</div>
+                        <div class="company-url">${c.url.replace('https://', '')}</div>
+                    </a>`).join('');
+            } catch(e) { console.error(e); }
+
+            const toggle = document.getElementById('themeToggle');
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.setAttribute('data-theme', 'dark'); toggle.textContent = '☀️';
+            }
+            toggle.addEventListener('click', () => {
+                const isDark = document.body.getAttribute('data-theme') === 'dark';
+                document.body.setAttribute('data-theme', isDark ? '' : 'dark');
+                toggle.textContent = isDark ? '🌙' : '☀️';
+            });
+        });
+    </script>
+</body>
+</html>
