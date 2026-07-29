@@ -8,5 +8,6 @@
   {"title": "Coldcard", "url": "https://coldcard.com", "desc": "最强硬件冷钱包"},
   {"title": "BitBox02", "url": "https://bitbox.swiss", "desc": "瑞士开源硬件钱包"},
   {"title": "Blockstream Jade", "url": "https://blockstream.com/jade", "desc": "Blockstream 硬件钱包"},
-  {"title": "Trezor", "url": "https://trezor.io", "desc": "最早硬件钱包品牌"}
+  {"title": "Trezor", "url": "https://trezor.io", "desc": "最早硬件钱包品牌"},
+  {"title": "OneKey", "url": "https://onekey.so/r/B6PZ0A", "desc": "开源硬件钱包，支持多链"}
 ]
