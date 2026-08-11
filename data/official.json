@@ -1,6 +1,6 @@
 [
   {"title": "Bitcoin.org", "url": "https://bitcoin.org", "desc": "最早的比特币网站，入门学习第一站"},
+  {"title": "比特币资源下载站", "url": "https://btczy.ngy123.com/", "desc": "比特币资源下载站"},
   {"title": "Bitcoin Whitepaper", "url": "https://bitcoin.org/bitcoin.pdf", "desc": "中本聪白皮书 PDF 原版"},
-  {"title": "Bitcoin Wiki", "url": "https://en.bitcoin.it/wiki/Main_Page", "desc": "最全的比特币维基百科"},
   {"title": "Bitcoin Core", "url": "https://bitcoincore.org", "desc": "比特币核心客户端官方站"}
 ]

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>比特币法币排行 | 各国法币市值排名 | 人民币 美元 欧元 日元 港元 | FiatMarketCap</title>
+<meta name="description" content="比特币视角下的全球法币市值排行，覆盖人民币、美元、欧元、日元、港元等110种法币。以BTC计价对比各国货币M2流通量与真实价值，比特币法币排行一站查询。"/>
+<meta name="keywords" content="比特币,法币,人民币,美元,日元,港元,欧元,法币排行,比特币排行,各国货币排名,法币市值,收法币,收人民币"/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="FiatMarketCap"/>
+<link rel="canonical" href="https://fiat.ngy123.com/"/>
+<meta property="og:title" content="比特币法币排行 | 人民币 美元 欧元 日元 港元 法币排名 | FiatMarketCap"/>
+<meta property="og:description" content="比特币视角下全球法币市值排行，覆盖人民币、美元、欧元、日元、港元等110种法币。BTC计价对比各国货币真实价值，法币排行一站查。"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://fiat.ngy123.com/"/>
+<meta property="og:site_name" content="FiatMarketCap - 法币市值排行"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="比特币法币排行 | 人民币 美元 日元 港元 欧元排名"/>
+<meta name="twitter:description" content="比特币法币排行，110种法币市值排名。人民币、美元、日元、港元、欧元一站式查询。"/>
+<meta name="theme-color" content="#f7931a"/>
+<meta name="color-scheme" content="light dark"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FiatMarketCap - 法币市值排行",
+  "url": "https://fiat.ngy123.com/",
+  "description": "各国法币市值排行，用比特币计价对比全球110种法币。收法币、收人民币前必查的全球货币数据平台。",
+  "inLanguage": "zh-CN",
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "全球法币市值排行",
+    "description": "各国货币按比特币计价的市值排名，包含M2流通量数据",
+    "numberOfItems": 110,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": { "@type": "Thing", "name": "人民币 CNY" }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": { "@type": "Thing", "name": "美元 USD" }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": { "@type": "Thing", "name": "欧元 EUR" }
+      }
+    ]
+  }
+}
+</script>
+<style>
+/* ===== FiatMarketCap.net Replica — Complete Styles ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* ── Header ── */
+header {
+  background-color: #343a3f;
+  color: #fff;
+  padding: 0.2em 1em 0.1em 5em;
+  position: sticky;
+  top: 0;
+  min-height: 4.5em;
+  font-weight: 200;
+  z-index: 100;
+}
+header img.logo {
+  position: absolute;
+  height: 1.6em;
+  top: 0.5em;
+  left: 0.5em;
+}
+header h1 {
+  margin: 0.2em 0;
+  font-size: 1.7em;
+  font-weight: 200;
+}
+header .slogan {
+  display: block;
+  font-size: 0.6em;
+  margin-top: 0.1em;
+}
+
+/* Header social links */
+.header-social {
+  position: absolute;
+  top: 1.1em;
+  right: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.header-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 7px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 1em;
+  transition: all 0.2s;
+}
+.header-social a:hover {
+  border-color: #f7931a;
+  color: #f7931a;
+  background: rgba(247,147,26,0.15);
+}
+.header-social .twitter-link {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.header-social .weibo-icon-hdr {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+/* ── Main Content ── */
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.1em;
+  font-weight: 400;
+  color: #222;
+}
+main {
+  padding: 1em 2em;
+  overflow-x: auto;
+}
+main > p {
+  color: #555;
+  font-size: 1.05em;
+  line-height: 1.7;
+  max-width: 900px;
+  margin-bottom: 0.5em;
+}
+main > p strong {
+  color: #e07b0a;
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  h1 { font-size: 1.4em; }
+  main > p { font-size: 0.95em; }
+}
+
+/* ── Table ── */
+table {
+  border: 0;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-family: Arial, sans-serif;
+  width: 800px;
+  max-width: 100%;
+}
+table th {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 0.7em 1em;
+  text-align: left;
+}
+table td, table th {
+  margin: 0;
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #eee;
+}
+table .pos {
+  color: #666;
+}
+table img.ico {
+  margin-right: 0.3em;
+  border: 1px solid #e8e8e8;
+  position: relative;
+  top: 3px;
+  width: 24px;
+  height: 18px;
+}
+table .r {
+  text-align: right;
+}
+table .info {
+  font-size: 90%;
+  color: #666;
+}
+
+/* BTC row special styling */
+tr.tr-btc {
+  background-color: #fffdf7;
+}
+tr.tr-btc td {
+  font-weight: 600;
+}
+.tr-btc .ico {
+  border: none !important;
+  width: 26px;
+  height: 20px;
+}
+
+/* Hover */
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+tbody tr.tr-btc:hover {
+  background-color: #fff9e8;
+}
+
+/* ── Footer ── */
+footer {
+  margin: 2em;
+  padding: 1em 0;
+  border-top: 1px solid #eee;
+  color: #999;
+  font-size: 0.9em;
+}
+footer a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+footer a:hover {
+  color: #f7931a;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em 1em;
+}
+.footer-links .links-title {
+  color: #666;
+  font-weight: 600;
+  margin-right: 0.5em;
+  white-space: nowrap;
+}
+.footer-bottom {
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+  color: #bbb;
+  font-size: 0.85em;
+}
+
+/* ── SEO Description ── */
+.seo-desc {
+  margin-top: 2em;
+  padding: 1.5em 1.8em;
+  background: #fafafa;
+  border-left: 4px solid #f7931a;
+  border-radius: 0 8px 8px 0;
+  max-width: 850px;
+}
+.seo-desc h2 {
+  font-size: 1.3em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+.seo-desc p {
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.8;
+  margin: 0.5em 0;
+}
+.seo-desc p strong {
+  color: #e07b0a;
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .seo-desc {
+    padding: 1em 1.2em;
+    margin-top: 1.5em;
+  }
+  .seo-desc p { font-size: 0.88em; }
+}
+
+/* ── Update timestamp ── */
+.update-time {
+  color: #999;
+  font-size: 0.85em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  main { padding: 1em; font-size: 90%; }
+  table { width: 100%; }
+  table img.ico {
+    width: 20px !important;
+    height: 15px !important;
+    top: 2px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4091.27 4091.73" fill-rule="evenodd" clip-rule="evenodd" style="height:1.6em;position:absolute;top:0.5em;left:0.5em;">
+    <path fill="#F7931A" fill-rule="nonzero" d="M4030.06 2540.77c-273.24,1096.01 -1383.32,1763.02 -2479.46,1489.71 -1095.68,-273.24 -1762.69,-1383.39 -1489.33,-2479.31 273.12,-1096.13 1383.2,-1763.19 2479,-1489.95 1096.06,273.24 1763.03,1383.51 1489.76,2479.57l0.02 -0.02z"/>
+    <path fill="white" fill-rule="nonzero" d="M2947.77 1754.38c40.72,-272.26 -166.56,-418.61 -450,-516.24l91.95 -368.8 -224.5 -55.94 -89.51 359.09c-59.02,-14.72 -119.63,-28.59 -179.87,-42.34l90.16 -361.46 -224.36 -55.94 -92 368.68c-48.84,-11.12 -96.81,-22.11 -143.35,-33.69l0.26 -1.16 -309.59 -77.31 -59.72 239.78c0,0 166.56,38.18 163.05,40.53 90.91,22.69 107.35,82.87 104.62,130.57l-104.74 420.15c6.26,1.59 14.38,3.89 23.34,7.49 -7.49,-1.86 -15.46,-3.89 -23.73,-5.87l-146.81 588.57c-11.11,27.62 -39.31,69.07 -102.87,53.33 2.25,3.26 -163.17,-40.72 -163.17,-40.72l-111.46 256.98 292.15 72.83c54.35,13.63 107.61,27.89 160.06,41.3l-92.9 373.03 224.24 55.94 92 -369.07c61.26,16.63 120.71,31.97 178.91,46.43l-91.69 367.33 224.51 55.94 92.89 -372.33c382.82,72.45 670.67,43.24 791.83,-303.02 97.63,-278.78 -4.86,-439.58 -206.26,-544.44 146.69,-33.83 257.18,-130.31 286.64,-329.61l-0.07 -0.05zm-512.93 719.26c-69.38,278.78 -538.76,128.08 -690.94,90.29l123.28 -494.2c152.17,37.99 640.17,113.17 567.67,403.91zm69.43 -723.3c-63.29,253.58 -453.96,124.75 -580.69,93.16l111.77 -448.21c126.73,31.59 534.85,90.55 468.94,355.05l-0.02 0z"/>
+  </svg>
+  <h1>FiatMarketCap<div class="slogan">Bitcoin Maximized</div></h1>
+  <div class="header-social">
+    <a href="https://x.com/nangongyuan" target="_blank" rel="noopener" title="南宫远 Twitter/X" class="twitter-link">𝕏</a>
+    <a href="https://weibo.com/u/7594643421" target="_blank" rel="noopener" title="南宫远 微博">
+      <svg class="weibo-icon-hdr" viewBox="0 0 32 32">
+        <g fill="none" fill-rule="evenodd">
+          <path fill="#E6162D" d="M23.97 8.39c.33-.74.15-1.58-.48-2.04-.63-.46-1.5-.38-2.04.2a6.22 6.22 0 0 0-1.28 2.43c-.12.4-.17.8-.17 1.2 0 .2.01.4.04.6.2 1.32 1.16 2.4 2.43 2.76.33.1.67.14 1.01.14.85 0 1.68-.32 2.32-.9.56-.5.7-1.34.32-1.99-.38-.66-1.17-.94-1.9-.7-.15.05-.3.05-.44-.01-.15-.06-.25-.18-.3-.33-.04-.15 0-.31.1-.43.2-.24.34-.54.45-.86z"/>
+          <path fill="#F6A623" d="M27.18 4.96c-.7-.93-1.92-1.2-2.91-.65-.5.28-.87.72-1.07 1.25-.2.53-.18 1.12.05 1.64.23.52.66.92 1.18 1.11.52.18 1.1.14 1.59-.12.98-.51 1.4-1.67.95-2.7-.07-.17-.16-.33-.27-.48l.48-.05z"/>
+          <path fill="#E6162D" d="M16.02 9.42c-4.43-.44-8.27 1.57-8.56 4.48-.3 2.9 3.08 5.62 7.51 6.05 4.43.44 8.27-1.57 8.56-4.48.3-2.9-3.08-5.62-7.51-6.05z"/>
+          <path fill="#FFF" d="M14.57 16.1c-.92-.29-1.42-1.01-1.14-1.66.28-.64 1.14-.96 2.07-.77.92.19 1.46.83 1.23 1.49-.24.66-1.15 1-2.16.94zm2.86-1.52c-.22-.71.18-1.39.91-1.57.74-.18 1.43.25 1.55.96.12.72-.27 1.42-1.01 1.6-.74.18-1.4-.23-1.45-.99z"/>
+        </g>
+      </svg>
+    </a>
+  </div>
+</header>
+
+<main>
+  <h1>各国货币市值排行 · 法币市值对比</h1>
+  <p>全球110种法币按比特币（BTC）计价的市值排名，一站式查询各国货币M2流通量。想<strong>收法币</strong>、<strong>收人民币</strong>？先看看各国货币的真实市值和排名，比特币视角下的<strong>各国货币排行</strong>，数据每日更新。</p>
+  <div class="update-time">Updated: <span id="updateTime">2026-08-05</span></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Currency</th>
+        <th class="r">Market Cap</th>
+        <th class="r mhide">Price</th>
+        <th class="r mhide">Circulating Supply</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <section class="seo-desc">
+    <h2>关于法币市值排行</h2>
+    <p>FiatMarketCap 是一个以<strong>比特币（BTC）</strong>计价，对比全球<strong>各国法币市值</strong>的数据平台。我们收录了包括<strong>人民币（CNY）</strong>、<strong>美元（USD）</strong>、欧元、日元等在内的<strong>110种法币</strong>，实时展示每种货币的M2流通量及其对应的BTC市值排名。</p>
+    <p>无论你是想<strong>收法币</strong>、<strong>收人民币</strong>，还是研究<strong>各国货币排行</strong>与比特币的对比关系，FiatMarketCap 都能为你提供最直观的数据参考。比特币作为全球最硬的货币资产，其市值已超越绝大多数国家的法币——在这里，你可以清晰地看到每一种法币在比特币面前的真实价值。</p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <span class="links-title">友情链接:</span>
+    <a href="https://ngy123.com" target="_blank">🏠 ngy123.com</a>
+    <a href="https://btc.ngy123.com" target="_blank">₿ BTC 导航站</a>
+    <a href="https://eth.ngy123.com" target="_blank">Ξ ETH 导航站</a>
+    <a href="https://binance.ngy123.com" target="_blank">🅑 Binance 导航</a>
+    <a href="https://bnb.ngy123.com" target="_blank">💛 BNB 深度分析</a>
+    <a href="https://okb.ngy123.com" target="_blank">🔵 OKB 深度分析</a>
+    <a href="https://okx.ngy123.com" target="_blank">⚡ OKX 交易所</a>
+  </div>
+  <div class="footer-bottom">&copy; 2026 FiatMarketCap &middot; btc.ngy123.com &middot; Bitcoin Only</div>
+</footer>
+
+<script>
+// ─── FiatMarketCap.net Data — All 110 currencies ───
+const currencies = [
+  {code:"CNY",name:"Chinese Yuan (Renminbi)",m2:356710000000000,mcap:824359555,ps:231,flag:"cn"},
+  {code:"USD",name:"United States Dollar",m2:23155000000000,mcap:362050366,ps:1563,flag:"us"},
+  {code:"EUR",name:"Euro",m2:16411005000000,mcap:295378284,ps:1799,flag:"eu"},
+  {code:"JPY",name:"Japanese Yen",m2:1296443000000000,mcap:128978131,ps:9,flag:"jp"},
+  {code:"GBP",name:"Pound Sterling",m2:3238708000000,mcap:68058473,ps:2101,flag:"gb"},
+  {code:"KRW",name:"South Korean Won",m2:4186152000000000,mcap:45785456,ps:1,flag:"kr"},
+  {code:"HKD",name:"Hong Kong Dollar",m2:21611738000000,mcap:43090306,ps:199,flag:"hk"},
+  {code:"TWD",name:"New Taiwan Dollar",m2:70290331000000,mcap:33987367,ps:48,flag:"tw"},
+  {code:"CAD",name:"Canadian Dollar",m2:2832736000000,mcap:31546474,ps:1113,flag:"ca"},
+  {code:"RUB",name:"Russian Ruble",m2:134487000000000,mcap:26295556,ps:19,flag:"ru"},
+  {code:"BRL",name:"Brazilian Real",m2:7646641000000,mcap:23579262,ps:308,flag:"br"},
+  {code:"CHF",name:"Swiss Franc",m2:1117306000000,mcap:21573526,ps:1929,flag:"ch"},
+  {code:"MXN",name:"Mexican Peso",m2:16844263963000,mcap:15198692,ps:90,flag:"mx"},
+  {code:"INR",name:"Indian Rupee",m2:80366000000000,mcap:13167041,ps:16,flag:"in"},
+  {code:"SAR",name:"Saudi Riyal",m2:3073211000000,mcap:12809737,ps:416,flag:"sa"},
+  {code:"AED",name:"United Arab Emirates Dirham",m2:2853878000000,mcap:12146301,ps:425,flag:"ae"},
+  {code:"PLN",name:"Polish Zloty",m2:2865930000000,mcap:11968983,ps:417,flag:"pl"},
+  {code:"THB",name:"Thai Baht",m2:24343000000000,mcap:11393552,ps:46,flag:"th"},
+  {code:"SGD",name:"Singapore Dollar",m2:892401000000,mcap:10875157,ps:1218,flag:"sg"},
+  {code:"VND",name:"Vietnamese Dong",m2:17914566000000000,mcap:10700342,ps:0,flag:"vn"},
+  {code:"MYR",name:"Malaysian Ringgit",m2:2665316000000,mcap:10174906,ps:381,flag:"my"},
+  {code:"IDR",name:"Indonesian Rupiah",m2:10432800000000000,mcap:9062352,ps:0,flag:"id"},
+  {code:"TRY",name:"Turkish Lira",m2:28144251947000,mcap:9250152,ps:32,flag:"tr"},
+  {code:"SEK",name:"Swedish Krona",m2:5182814000000,mcap:8477265,ps:163,flag:"se"},
+  {code:"ILS",name:"Israeli New Shekel",m2:1526174000000,mcap:7820847,ps:512,flag:"il"},
+  {code:"NOK",name:"Norwegian Krone",m2:3642356000000,mcap:5967459,ps:163,flag:"no"},
+  {code:"CZK",name:"Czech Koruna",m2:7261009000000,mcap:5400975,ps:74,flag:"cz"},
+  {code:"PHP",name:"Philippine Peso",m2:19969689000000,mcap:5121625,ps:25,flag:"ph"},
+  {code:"COP",name:"Colombian Peso",m2:970789000000000,mcap:4808826,ps:0,flag:"co"},
+  {code:"EGP",name:"Egyptian Pound",m2:15261812000000,mcap:4745719,ps:31,flag:"eg"},
+  {code:"DKK",name:"Danish Krone",m2:1926561000000,mcap:4645883,ps:241,flag:"dk"},
+  {code:"ZAR",name:"South African Rand",m2:4889290000000,mcap:4625759,ps:94,flag:"za"},
+  {code:"QAR",name:"Qatari Riyal",m2:800860000000,mcap:3438885,ps:429,flag:"qa"},
+  {code:"CLP",name:"Chilean Peso",m2:203687000000000,mcap:3423069,ps:1,flag:"cl"},
+  {code:"MAD",name:"Moroccan Dirham",m2:1828405000000,mcap:3063447,ps:167,flag:"ma"},
+  {code:"BDT",name:"Bangladeshi Taka",m2:23911000000000,mcap:3028333,ps:12,flag:"bd"},
+  {code:"RON",name:"Romanian Leu",m2:803868000000,mcap:2760340,ps:343,flag:"ro"},
+  {code:"PKR",name:"Pakistani Rupee",m2:46859223000000,mcap:2636851,ps:5,flag:"pk"},
+  {code:"HUF",name:"Hungarian Forint",m2:48029000000000,mcap:2374949,ps:4,flag:"hu"},
+  {code:"KWD",name:"Kuwaiti Dinar",m2:42742000000,mcap:2160497,ps:5054,flag:"kw"},
+  {code:"IQD",name:"Iraqi Dinar",m2:179459000000000,mcap:2137542,ps:1,flag:"iq"},
+  {code:"MOP",name:"Macanese Pataca",m2:847588000000,mcap:1640184,ps:193,flag:"mo"},
+  {code:"KZT",name:"Kazakhstani Tenge",m2:48128861000000,mcap:1585975,ps:3,flag:"kz"},
+  {code:"NGN",name:"Nigerian Naira",m2:133244657000000,mcap:1525865,ps:1,flag:"ng"},
+  {code:"UAH",name:"Ukrainian Hryvnia",m2:4139194000000,mcap:1444283,ps:34,flag:"ua"},
+  {code:"OMR",name:"Omani Rial",m2:28601000000,mcap:1162558,ps:4064,flag:"om"},
+  {code:"JOD",name:"Jordanian Dinar",m2:49511000000,mcap:1091381,ps:2204,flag:"jo"},
+  {code:"GTQ",name:"Guatemalan Quetzal",m2:472583000000,mcap:969605,ps:205,flag:"gt"},
+  {code:"ARS",name:"Argentine Peso",m2:88051602000000,mcap:921473,ps:1,flag:"ar"},
+  {code:"PEN",name:"Peruvian Sol",m2:162511000000,mcap:751299,ps:462,flag:"pe"},
+  {code:"XOF",name:"CFA Franc BCEAO",m2:25648700000000,mcap:703451,ps:2,flag:"ci"},
+  {code:"LKR",name:"Sri Lankan Rupee",m2:14730555000000,mcap:686044,ps:4,flag:"lk"},
+  {code:"DOP",name:"Dominican Peso",m2:2408995000000,mcap:649753,ps:26,flag:"do"},
+  {code:"BHD",name:"Bahraini Dinar",m2:15383000000,mcap:639410,ps:4156,flag:"bh"},
+  {code:"KES",name:"Kenyan Shilling",m2:4959000000000,mcap:599407,ps:12,flag:"ke"},
+  {code:"CRC",name:"Costa Rican Colón",m2:16851154000000,mcap:580649,ps:3,flag:"cr"},
+  {code:"LYD",name:"Libyan Dinar",m2:209516000000,mcap:512483,ps:244,flag:"ly"},
+  {code:"GHS",name:"Ghanaian Cedi",m2:338577000000,mcap:452469,ps:133,flag:"gh"},
+  {code:"RSD",name:"Serbian Dinar",m2:2844360000000,mcap:436403,ps:15,flag:"rs"},
+  {code:"BAM",name:"Bosnia and Herzegovina Convertible Mark",m2:44584000000,mcap:410109,ps:919,flag:"ba"},
+  {code:"AZN",name:"Azerbaijani Manat",m2:43254000000,mcap:397858,ps:919,flag:"az"},
+  {code:"BYN",name:"Belarusian Ruble",m2:72704000000,mcap:389892,ps:536,flag:"by"},
+  {code:"HNL",name:"Honduran Lempira",m2:663415000000,mcap:387389,ps:58,flag:"hn"},
+  {code:"CDF",name:"Congolese Franc",m2:51495076000000,mcap:353123,ps:0,flag:"cd"},
+  {code:"AOA",name:"Angolan Kwanza",m2:19416148000000,mcap:327590,ps:1,flag:"ao"},
+  {code:"ISK",name:"Icelandic Króna",m2:2466000000000,mcap:312803,ps:12,flag:"is"},
+  {code:"TZS",name:"Tanzanian Shilling",m2:51375000000000,mcap:303562,ps:0,flag:"tz"},
+  {code:"UYU",name:"Uruguayan Peso",m2:710037000000,mcap:276658,ps:38,flag:"uy"},
+  {code:"BOB",name:"Bolivian Boliviano",m2:203693215000,mcap:267208,ps:131,flag:"bo"},
+  {code:"PYG",name:"Paraguayan Guaraní",m2:98786315000000,mcap:258867,ps:0,flag:"py"},
+  {code:"LAK",name:"Lao Kip",m2:354982000000000,mcap:248214,ps:0,flag:"la"},
+  {code:"TTD",name:"Trinidad and Tobago Dollar",m2:103276000000,mcap:239053,ps:231,flag:"tt"},
+  {code:"ALL",name:"Albanian Lek",m2:1271407000000,mcap:245267,ps:19,flag:"al"},
+  {code:"MNT",name:"Mongolian Tögrög",m2:53145303000000,mcap:231633,ps:0,flag:"mn"},
+  {code:"AMD",name:"Armenian Dram",m2:5433713000000,mcap:232031,ps:4,flag:"am"},
+  {code:"GEL",name:"Georgian Lari",m2:37134971000,mcap:221308,ps:595,flag:"ge"},
+  {code:"BND",name:"Brunei Dollar",m2:17498000000,mcap:213219,ps:1218,flag:"bn"},
+  {code:"NAD",name:"Namibian Dollar",m2:178354000000,mcap:168736,ps:94,flag:"na"},
+  {code:"MKD",name:"Macedonian Denar",m2:577334000000,mcap:166972,ps:28,flag:"mk"},
+  {code:"ZMW",name:"Zambian Kwacha",m2:190105621000,mcap:157870,ps:83,flag:"zm"},
+  {code:"UGX",name:"Ugandan Shilling",m2:37139000000000,mcap:156930,ps:0,flag:"ug"},
+  {code:"KGS",name:"Kyrgyzstani Som",m2:829891000000,mcap:148367,ps:17,flag:"kg"},
+  {code:"BWP",name:"Botswana Pula",m2:123149000000,mcap:138153,ps:112,flag:"bw"},
+  {code:"MDL",name:"Moldovan Leu",m2:151668000000,mcap:136006,ps:89,flag:"md"},
+  {code:"JMD",name:"Jamaican Dollar",m2:1270724000000,mcap:125543,ps:9,flag:"jm"},
+  {code:"NIO",name:"Nicaraguan Córdoba",m2:258206000000,mcap:109853,ps:42,flag:"ni"},
+  {code:"XOF_TOGO",name:"CFA Franc BCEAO (Togo)",m2:3362000000000,mcap:92210,ps:2,flag:"tg",displayCode:"XOF"},
+  {code:"GYD",name:"Guyanese Dollar",m2:1224000000000,mcap:91322,ps:7,flag:"gy"},
+  {code:"FJD",name:"Fijian Dollar",m2:12628000000,mcap:89248,ps:706,flag:"fj"},
+  {code:"ZWG",name:"Zimbabwe ZiG",m2:140664000000,mcap:82428,ps:58,flag:"zw"},
+  {code:"MVR",name:"Maldivian Rufiyaa",m2:78660000000,mcap:79633,ps:101,flag:"mv"},
+  {code:"MWK",name:"Malawian Kwacha",m2:7923400000000,mcap:71010,ps:0,flag:"mw"},
+  {code:"XOF_NIGER",name:"CFA Franc BCEAO (Niger)",m2:2329300000000,mcap:63885,ps:2,flag:"ne",displayCode:"XOF"},
+  {code:"CVE",name:"Cape Verdean Escudo",m2:286796000000,mcap:46793,ps:16,flag:"cv"},
+  {code:"RWF",name:"Rwandan Franc",m2:4309000000000,mcap:45780,ps:1,flag:"rw"},
+  {code:"VES",name:"Venezuelan Bolívar Soberano",m2:2162004000000,mcap:44927,ps:2,flag:"ve"},
+  {code:"BIF",name:"Burundian Franc",m2:7345337000000,mcap:38380,ps:0,flag:"bi"},
+  {code:"XOF_SENEGAL",name:"CFA Franc BCEAO (Senegal)",m2:1215460000000,mcap:33335,ps:2,flag:"sn",displayCode:"XOF"},
+  {code:"LRD",name:"Liberian Dollar",m2:299356000000,mcap:25957,ps:8,flag:"lr"},
+  {code:"SZL",name:"Swazi Lilangeni",m2:26526000000,mcap:25094,ps:94,flag:"sz"},
+  {code:"LBP",name:"Lebanese Pound",m2:139585000000000,mcap:24374,ps:0,flag:"lb"},
+  {code:"GMD",name:"Gambian Dalasi",m2:99532000000,mcap:20892,ps:20,flag:"gm"},
+  {code:"SCR",name:"Seychellois Rupee",m2:17843000000,mcap:19107,ps:107,flag:"sc"},
+  {code:"DJF",name:"Djiboutian Franc",m2:227001000000,mcap:19963,ps:8,flag:"dj"},
+  {code:"LSL",name:"Lesotho Loti",m2:20056000000,mcap:18975,ps:94,flag:"ls"},
+  {code:"STN",name:"São Tomé and Príncipe Dobra",m2:3871000000,mcap:2842,ps:73,flag:"st"},
+  {code:"TND",name:"Tunisian Dinar",m2:141889000,mcap:755,ps:532,flag:"tn"},
+  {code:"TJS",name:"Tajikistani Somoni",m2:62766000,mcap:106,ps:169,flag:"tj"},
+  {code:"SLL",name:"Sierra Leonean Leone",m2:43238000000,mcap:27,ps:0,flag:"sl"}
+];
+
+// ─── BTC Constants ───
+const BTC_SUPPLY = 20065865;
+
+// ─── Formatting ───
+function fmtNum(n) {
+  return n.toLocaleString('en-US');
+}
+
+function fmtBTC(btc) {
+  if (btc >= 1000000) return Math.floor(btc).toLocaleString('en-US') + ' BTC';
+  if (btc >= 1) return fmtNum(Math.floor(btc)) + ' BTC';
+  return fmtNum(Math.floor(btc)) + ' BTC';
+}
+
+function fmtSats(ps) {
+  if (ps === 0 || ps < 0.5) return '<1 sats';
+  if (ps < 1000) return Math.round(ps) + ' sats';
+  return fmtNum(Math.round(ps)) + ' sats';
+}
+
+function fmtSupply(m2, code) {
+  if (m2 >= 1e15) return (m2/1e12).toFixed(2).replace(/\.00$/,'') + 'T ' + code;
+  if (m2 >= 1e12) return (m2/1e12).toFixed(2).replace(/\.00$/,'') + 'T ' + code;
+  if (m2 >= 1e9) return (m2/1e9).toFixed(2).replace(/\.00$/,'') + 'B ' + code;
+  if (m2 >= 1e6) return (m2/1e6).toFixed(2).replace(/\.00$/,'') + 'M ' + code;
+  return fmtNum(m2) + ' ' + code;
+}
+
+// ─── BTC row template ───
+function btcRowHTML(rank) {
+  return `<tr class="tr-btc" title="Bitcoin ~ ${fmtNum(BTC_SUPPLY)} BTC total supply">
+    <td class="pos">${rank}</td>
+    <td>
+      <svg width="24" height="24" viewBox="0 0 100 100" style="vertical-align:middle;margin-right:0.3em;">
+        <circle cx="50" cy="50" r="46" fill="#f7931a"/>
+        <text x="50" y="68" text-anchor="middle" font-size="48" font-weight="800" fill="#fff" font-family="sans-serif">₿</text>
+      </svg>
+      <strong>BTC</strong>
+    </td>
+    <td class="r">${fmtNum(BTC_SUPPLY)} BTC</td>
+    <td class="r info mhide">100,000,000 sats</td>
+    <td class="r info mhide">${fmtNum(BTC_SUPPLY)} BTC</td>
+  </tr>`;
+}
+
+function fiatRowHTML(rank, c) {
+  const displayCode = c.displayCode || c.code;
+  return `<tr title="${displayCode} — ${c.name} | ${c.mcap.toLocaleString('en-US')} BTC">
+    <td class="pos">${rank}</td>
+    <td>
+      <img class="ico" src="https://flagcdn.com/24x18/${c.flag}.png" alt="" loading="lazy" onerror="this.style.display='none'"/>
+      ${displayCode}
+    </td>
+    <td class="r">${fmtBTC(c.mcap)}</td>
+    <td class="r info mhide">${fmtSats(c.ps)}</td>
+    <td class="r info mhide">${fmtSupply(c.m2, displayCode)}</td>
+  </tr>`;
+}
+
+// ─── Render Table ───
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+
+  // Sort by stored market cap descending
+  const ranked = currencies.slice().sort((a, b) => b.mcap - a.mcap);
+
+  // BTC rank
+  let btcRank = ranked.filter(c => c.mcap > BTC_SUPPLY).length;
+
+  let html = '';
+  let displayed = 0;
+
+  for (const c of ranked) {
+    if (displayed === btcRank) {
+      html += btcRowHTML(btcRank + 1);
+    }
+
+    displayed++;
+    const rank = displayed + (displayed > btcRank ? 1 : 0);
+    html += fiatRowHTML(rank, c);
+  }
+
+  if (displayed === btcRank) {
+    html += btcRowHTML(btcRank + 1);
+  }
+
+  tbody.innerHTML = html;
+
+  document.getElementById('updateTime').textContent = '2026-08-05 00:42:45 UTC';
+}
+
+// ─── Init ───
+renderTable();
+</script>
+</body>
+</html>
