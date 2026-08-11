@@ -1,0 +1,8 @@
+[
+  {"title": "Foundry", "url": "https://foundrydigital.com", "desc": "全球最大矿池之一"},
+  {"title": "AntPool", "url": "https://www.antpool.com", "desc": "比特大陆旗下矿池"},
+  {"title": "F2Pool", "url": "https://www.f2pool.com", "desc": "全球知名综合性矿池"},
+  {"title": "ViaBTC", "url": "https://www.viabtc.com", "desc": "老牌比特币矿池"},
+  {"title": "Luxor", "url": "https://luxor.tech", "desc": "北美比特币矿池与算力"},
+  {"title": "Hashrate Index", "url": "https://hashrateindex.com", "desc": "算力市场与矿业数据"}
+]

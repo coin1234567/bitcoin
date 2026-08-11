@@ -1,0 +1,8 @@
+[
+  {"title": "中本聪邮件", "url": "https://satoshi.nakamotoinstitute.org", "desc": "中本聪所有公开邮件存档"},
+  {"title": "中本聪研究所", "url": "https://nakamotoinstitute.org", "desc": "密码朋克与比特币文献库"},
+  {"title": "Bitcoin Tech Talk", "url": "https://bitcointechtalk.com", "desc": "比特币技术深度分析"},
+  {"title": "Unchained Blog", "url": "https://unchained.com/blog", "desc": "比特币金融与多签"},
+  {"title": "Casa Blog", "url": "https://blog.casa.io", "desc": "比特币自托管安全"},
+  {"title": "River Learn", "url": "https://river.com/learn", "desc": "比特币金融学习资源"}
+]

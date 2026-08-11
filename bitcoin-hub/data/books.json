@@ -1,0 +1,14 @@
+[
+  {"title": "比特币白皮书", "author": "中本聪", "desc": "一切开始的地方。9页改变了世界。", "url": "https://bitcoin.org/bitcoin.pdf"},
+  {"title": "比特币本位：奥地利学派设计下的比特币经济学", "author": "Saifedean Ammous", "desc": "奥地利学派视角下的比特币经济学", "url": "https://u.jd.com/Xr52uCB"},
+  {"title": "Broken Money", "author": "Lyn Alden", "desc": "货币工程：为什么我们的金融系统是坏的", "url": null},
+  {"title": "精通比特币", "author": "Andreas M. Antonopoulos", "desc": "比特币技术原理的终极指南", "url": "https://u.jd.com/Xa5dO6B"},
+  {"title": "The Bitcoin Standard", "author": "Saifedean Ammous", "desc": "比特币如何成为数字时代的货币", "url": null},
+  {"title": "Inventing Bitcoin", "author": "Yan Pritzker", "desc": "100页讲清楚比特币如何运作", "url": null},
+  {"title": "The Blocksize War", "author": "Jonathan Bier", "desc": "区块大小战争的全记录", "url": null},
+  {"title": "The Little Bitcoin Book", "author": "多人合著", "desc": "普通人也能读懂的比特币入门", "url": null},
+  {"title": "Layered Money", "author": "Nik Bhatia", "desc": "从金币到比特币的货币层次演进", "url": null},
+  {"title": "The Price of Tomorrow", "author": "Jeff Booth", "desc": "技术通缩vs法币通胀", "url": null},
+  {"title": "Gradually Then Suddenly", "author": "Parker Lewis", "desc": "比特币的必然性", "url": null},
+  {"title": "Bitcoin is Venice", "author": "Allen Farrington", "desc": "比特币与资本主义的未来", "url": null}
+]

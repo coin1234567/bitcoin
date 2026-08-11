@@ -1,0 +1,6 @@
+[
+  {"title": "GitHub Bitcoin", "url": "https://github.com/bitcoin", "desc": "Bitcoin Core 源码仓库"},
+  {"title": "Bitcoin BIPs", "url": "https://github.com/bitcoin/bips", "desc": "比特币改进提案全集"},
+  {"title": "Bitcoin Optech", "url": "https://bitcoinops.org", "desc": "比特币技术通讯与研究"},
+  {"title": "Bitcoin Stack Exchange", "url": "https://bitcoin.stackexchange.com", "desc": "比特币技术 Q&A 社区"}
+]

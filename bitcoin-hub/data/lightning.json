@@ -1,0 +1,7 @@
+[
+  {"title": "Lightning Labs", "url": "https://lightning.engineering", "desc": "Lightning Network 核心开发团队"},
+  {"title": "Amboss", "url": "https://amboss.space", "desc": "Lightning 网络数据与分析"},
+  {"title": "Voltage", "url": "https://voltage.cloud", "desc": "云端 Lightning 节点托管"},
+  {"title": "Breez", "url": "https://breez.technology", "desc": "Lightning SDK 与应用"},
+  {"title": "Alby", "url": "https://getalby.com", "desc": "浏览器 Lightning 扩展钱包"}
+]

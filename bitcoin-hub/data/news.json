@@ -1,0 +1,11 @@
+[
+  {"title": "Bitcoin Magazine", "url": "https://bitcoinmagazine.com", "desc": "最权威的比特币专属媒体"},
+  {"title": "CoinDesk", "url": "https://www.coindesk.com", "desc": "全球知名加密新闻平台"},
+  {"title": "The Block", "url": "https://www.theblock.co", "desc": "区块链深度研究与新闻"},
+  {"title": "Blockworks", "url": "https://blockworks.co", "desc": "加密金融研究媒体"},
+  {"title": "BTC Times", "url": "https://btctimes.com", "desc": "比特币专属新闻媒体"},
+  {"title": "Decrypt", "url": "https://decrypt.co", "desc": "通俗易懂的加密新闻"},
+  {"title": "吴说区块链", "url": "https://www.wublock123.com", "desc": "中文区块链深度报道"},
+  {"title": "PANews", "url": "https://www.panewslab.com", "desc": "中文区块链新闻与深度"},
+  {"title": "Odaily", "url": "https://www.odaily.news", "desc": "星球日报，每日加密资讯"}
+]

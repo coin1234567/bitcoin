@@ -1,0 +1,8 @@
+[
+  {"title": "TradingView", "url": "https://www.tradingview.com", "desc": "最强技术分析图表工具"},
+  {"title": "CoinGlass", "url": "https://www.coinglass.com", "desc": "衍生品数据与清算地图"},
+  {"title": "CoinGecko", "url": "https://www.coingecko.com", "desc": "加密货币行情与市值"},
+  {"title": "CoinMarketCap", "url": "https://coinmarketcap.com", "desc": "全球最大市值排名站"},
+  {"title": "SoSoValue", "url": "https://www.sosovalue.com", "desc": "加密资产跟踪与 ETF 数据"},
+  {"title": "Farside ETF", "url": "https://farside.co.uk", "desc": "比特币 ETF 资金流追踪"}
+]

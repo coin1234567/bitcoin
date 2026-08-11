@@ -1,0 +1,9 @@
+[
+  {"title": "BTCPay Server", "url": "https://btcpayserver.org", "desc": "自托管比特币支付处理器"},
+  {"title": "Umbrel", "url": "https://umbrel.com", "desc": "一键部署全节点 OS"},
+  {"title": "Start9", "url": "https://start9.com", "desc": "主权计算节点平台"},
+  {"title": "SeedSigner", "url": "https://seedsigner.com", "desc": "离线 DIY 签名设备"},
+  {"title": "Specter Desktop", "url": "https://specter.solutions", "desc": "桌面端多签钱包"},
+  {"title": "RaspiBlitz", "url": "https://raspiblitz.org", "desc": "树莓派闪电节点"},
+  {"title": "MyNode", "url": "https://mynodebtc.com", "desc": "一键部署比特币全节点"}
+]

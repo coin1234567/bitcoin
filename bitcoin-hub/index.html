@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比特币资源导航站(南宫远版) — btc.ngy123.com</title>
+    <meta name="description" content="全球比特币资源库：钱包、交易所、区块浏览器、链上数据、矿业、Lightning、人物、书籍一站式导航。Bitcoin Only。">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #F7931A;
+            --orange-dark: #E67E22;
+            --orange-deep: #CC6E0E;
+            --orange-light: #FFF3E0;
+            --orange-ghost: rgba(247,147,26,0.08);
+            --primary-gradient: linear-gradient(135deg, #F7931A 0%, #E67E22 100%);
+            --bg-primary: #FFF8F0;
+            --bg-secondary: #FFF0E0;
+            --bg-card: #FFFFFF;
+            --bg-sidebar: rgba(255,255,255,0.95);
+            --text-primary: #2D1A00;
+            --text-secondary: #805500;
+            --text-muted: #B37400;
+            --border-color: #F0D5B8;
+            --shadow-sm: 0 1px 3px rgba(247,147,26,0.08);
+            --shadow-md: 0 4px 12px rgba(247,147,26,0.12);
+            --shadow-lg: 0 10px 30px rgba(247,147,26,0.18);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0D0D12;
+            --bg-secondary: #16161E;
+            --bg-card: #1A1A24;
+            --bg-sidebar: rgba(13,13,18,0.97);
+            --text-primary: #F5F5F7;
+            --text-secondary: #C0B8A8;
+            --text-muted: #9A9070;
+            --border-color: rgba(247,147,26,0.12);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.5);
+            --orange-light: rgba(247,147,26,0.06);
+            --orange-ghost: rgba(247,147,26,0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+
+        .bg-animation {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; overflow: hidden; background: var(--bg-primary);
+        }
+        .bg-animation::before {
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, var(--orange-ghost) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* Header */
+        header {
+            background: var(--bg-sidebar);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem 2rem;
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+        .header-content {
+            max-width: 1400px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.4rem; font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
+            white-space: nowrap;
+        }
+        .logo-sub { font-size: 0.7rem; font-weight: 400; color: var(--text-muted); margin-left: 0.25rem; -webkit-text-fill-color: var(--text-muted); }
+
+        .search-container { flex: 1; max-width: 500px; display: flex; gap: 0.5rem; }
+        .search-form {
+            flex: 1; display: flex; background: var(--bg-card);
+            border-radius: var(--radius-xl); padding: 0.25rem;
+            border: 2px solid var(--border-color); transition: var(--transition);
+        }
+        .search-form:focus-within { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(247,147,26,0.15); }
+        .search-input {
+            flex: 1; padding: 0.6rem 1rem; border: none; background: transparent;
+            font-size: 0.9rem; color: var(--text-primary); outline: none;
+        }
+        .search-input::placeholder { color: var(--text-muted); }
+        .search-engine {
+            padding: 0.5rem 0.75rem; border: none; background: transparent;
+            color: var(--text-secondary); cursor: pointer; font-size: 0.8rem;
+        }
+        .search-btn {
+            padding: 0.6rem 1.25rem; border: none; border-radius: var(--radius-lg);
+            background: var(--primary-gradient); color: #fff; cursor: pointer;
+            font-weight: 600; transition: var(--transition); font-size: 0.9rem;
+        }
+        .search-btn:hover { transform: scale(1.05); box-shadow: var(--shadow-md); }
+
+        .social-links {
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .social-link {
+            width: 40px; height: 40px; border: 2px solid var(--border-color);
+            background: var(--bg-card); border-radius: var(--radius-md);
+            cursor: pointer; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; font-size: 1.15rem;
+        }
+        .social-link:hover { border-color: var(--orange); transform: scale(1.08); }
+
+        .theme-toggle {
+            width: 40px; height: 40px; border: 2px solid var(--border-color);
+            background: var(--bg-card); border-radius: var(--radius-md);
+            cursor: pointer; font-size: 1.15rem; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .theme-toggle:hover { border-color: var(--orange); transform: scale(1.08); }
+
+        /* Hero Dashboard */
+        .dashboard {
+            max-width: 1400px; margin: 1.5rem auto 0; padding: 0 2rem;
+        }
+        .dashboard-card {
+            background: var(--primary-gradient);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem 2rem;
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(247,147,26,0.3);
+        }
+        .dashboard-title {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 1rem; font-weight: 700; margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .dash-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-md);
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .dash-label {
+            font-size: 0.72rem; font-weight: 500; opacity: 0.8;
+            margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .dash-value {
+            font-size: 1.15rem; font-weight: 700;
+        }
+        .dash-value.price { font-size: 1.35rem; font-weight: 800; }
+        .dash-value.change { font-size: 0.85rem; }
+        .change-up { color: #00E676; font-weight: 800; text-shadow: 0 0 12px rgba(0,230,118,0.5); }
+        .change-down { color: #FF5252; font-weight: 800; text-shadow: 0 0 12px rgba(255,82,82,0.5); }
+
+        .dash-news {
+            margin-top: 1rem; padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            display: flex; gap: 1.5rem; flex-wrap: wrap;
+            font-size: 0.8rem; opacity: 0.85;
+        }
+        .dash-news-item { display: flex; align-items: center; gap: 0.35rem; }
+        .dash-news-item a { color: #fff; text-decoration: none; }
+        .dash-news-item a:hover { text-decoration: underline; }
+
+        /* Content Layout */
+        .content-wrapper {
+            max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem 2rem;
+            display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem;
+        }
+
+        .sidebar { position: relative; }
+        .sidebar-card {
+            background: var(--bg-card); border-radius: var(--radius-lg);
+            padding: 1.25rem; box-shadow: var(--shadow-md);
+            position: sticky; top: 90px; max-height: calc(100vh - 110px);
+            overflow-y: auto;
+        }
+        .sidebar-card h2 {
+            font-size: 0.85rem; font-weight: 700; margin-bottom: 0.75rem;
+            color: var(--text-secondary); letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .sidebar-card ul { list-style: none; }
+        .sidebar-card li { margin-bottom: 0.15rem; }
+        .sidebar-card a {
+            display: block; padding: 0.4rem 0.6rem; color: var(--text-primary);
+            text-decoration: none; border-radius: var(--radius-sm);
+            transition: var(--transition); font-size: 0.82rem;
+        }
+        .sidebar-card a:hover {
+            background: var(--orange-ghost); padding-left: 0.8rem;
+            color: var(--orange);
+        }
+
+        main { display: flex; flex-direction: column; gap: 1.5rem; }
+        .category {
+            background: var(--bg-card); border-radius: var(--radius-lg);
+            padding: 1.5rem; box-shadow: var(--shadow-md);
+            opacity: 0; animation: fadeInUp 0.5s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .category:nth-child(1) { animation-delay: 0s; }
+        .category:nth-child(2) { animation-delay: 0.05s; }
+        .category:nth-child(3) { animation-delay: 0.1s; }
+        .category:nth-child(4) { animation-delay: 0.15s; }
+        .category:nth-child(5) { animation-delay: 0.2s; }
+        .category:nth-child(6) { animation-delay: 0.25s; }
+        .category:nth-child(7) { animation-delay: 0.3s; }
+        .category:nth-child(8) { animation-delay: 0.35s; }
+        .category:nth-child(9) { animation-delay: 0.4s; }
+        .category:nth-child(10) { animation-delay: 0.45s; }
+        .category:nth-child(11) { animation-delay: 0.5s; }
+        .category:nth-child(12) { animation-delay: 0.55s; }
+        .category:nth-child(13) { animation-delay: 0.6s; }
+        .category:nth-child(14) { animation-delay: 0.65s; }
+        .category:nth-child(15) { animation-delay: 0.7s; }
+        .category:nth-child(16) { animation-delay: 0.75s; }
+        .category:nth-child(17) { animation-delay: 0.8s; }
+
+        .category-header {
+            display: flex; align-items: center; gap: 0.75rem;
+            margin-bottom: 1.25rem; padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .category-icon { font-size: 1.4rem; }
+        .category-header h2 { font-size: 1.15rem; font-weight: 700; }
+        .category-header .badge {
+            font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 999px;
+            background: var(--orange-ghost); color: var(--orange);
+            font-weight: 600;
+        }
+
+        .category ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 0.6rem; list-style: none;
+        }
+        .category li a {
+            display: flex; flex-direction: column; gap: 0.2rem;
+            padding: 0.85rem 1rem; background: var(--bg-secondary);
+            border-radius: var(--radius-md); text-decoration: none;
+            transition: var(--transition); border: 1px solid transparent;
+        }
+        .category li a:hover {
+            transform: translateY(-2px); box-shadow: var(--shadow-md);
+            border-color: var(--orange);
+        }
+        .site-title { font-weight: 600; color: var(--text-primary); font-size: 0.95rem; }
+        .site-desc { font-size: 0.78rem; color: var(--text-secondary); }
+
+        /* People Grid */
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.75rem; list-style: none;
+        }
+        .person-card {
+            padding: 1rem; background: var(--bg-secondary);
+            border-radius: var(--radius-md); transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .person-card:hover {
+            box-shadow: var(--shadow-md); border-color: var(--orange);
+        }
+        .person-name { font-weight: 700; font-size: 1rem; }
+        .person-role {
+            font-size: 0.75rem; color: var(--orange);
+            font-weight: 600; margin-bottom: 0.3rem;
+        }
+        .person-desc { font-size: 0.8rem; color: var(--text-secondary); }
+
+        /* Book Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.75rem; list-style: none;
+        }
+        .book-card {
+            padding: 1rem; background: var(--bg-secondary);
+            border-radius: var(--radius-md); transition: var(--transition);
+            border: 1px solid transparent; text-decoration: none;
+        }
+        .book-card:hover {
+            box-shadow: var(--shadow-md); border-color: var(--orange);
+        }
+        .book-title { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); }
+        .book-author { font-size: 0.78rem; color: var(--orange); font-weight: 500; }
+        .book-desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.25rem; }
+
+        /* Knowledge Base */
+        .kb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.5rem; list-style: none;
+        }
+        .kb-card {
+            padding: 0.7rem 1rem; background: var(--bg-secondary);
+            border-radius: var(--radius-sm); transition: var(--transition);
+            cursor: pointer; border: 1px solid transparent;
+            font-size: 0.85rem; font-weight: 500;
+        }
+        .kb-card:hover {
+            background: var(--orange-ghost); border-color: var(--orange);
+            color: var(--orange);
+        }
+
+        footer {
+            background: var(--bg-sidebar); border-top: 1px solid var(--border-color);
+            padding: 1.5rem; text-align: center; color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--orange); text-decoration: none; }
+
+        .scroll-top {
+            position: fixed; bottom: 2rem; right: 2rem;
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--primary-gradient); color: #fff;
+            border: none; cursor: pointer; font-size: 1.3rem;
+            box-shadow: var(--shadow-lg); opacity: 0; visibility: hidden;
+            transition: var(--transition); z-index: 50;
+        }
+        .scroll-top.visible { opacity: 1; visibility: visible; }
+        .scroll-top:hover { transform: scale(1.15); }
+
+        @media (max-width: 900px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            header { padding: 0.75rem 1rem; }
+            .header-content { gap: 0.5rem; }
+            .search-container { order: 3; width: 100%; max-width: none; }
+            .content-wrapper { padding: 1rem; }
+            .category ul { grid-template-columns: 1fr; }
+            .dashboard { padding: 0 1rem; }
+            .dashboard-card { padding: 1rem; }
+            .dashboard-grid { grid-template-columns: 1fr 1fr; }
+            .dash-item { padding: 0.5rem 0.75rem; }
+            .dash-value.price { font-size: 1.1rem; }
+            .people-grid, .book-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                ₿ 比特币资源导航站
+                <span class="logo-sub">南宫远版 &middot; btc.ngy123.com</span>
+            </a>
+            <div class="search-container">
+                <form class="search-form" id="searchForm">
+                    <input type="text" class="search-input" id="searchInput" placeholder="搜索比特币资源..." autocomplete="off">
+                    <select class="search-engine" id="searchEngine">
+                        <option value="google">Google</option>
+                        <option value="bing">Bing</option>
+                        <option value="baidu">百度</option>
+                    </select>
+                    <button type="submit" class="search-btn">搜索</button>
+                </form>
+            </div>
+            <div class="social-links">
+                <a href="https://x.com/nangongyuan" class="social-link" target="_blank" rel="noopener" title="南宫远 Twitter/X">𝕏</a>
+                <a href="https://weibo.com/u/7594643421" class="social-link" target="_blank" rel="noopener" title="南宫远 微博">
+                    <svg viewBox="0 0 32 32" width="20" height="20">
+                        <g fill="none" fill-rule="evenodd">
+                            <path fill="#E6162D" d="M23.97 8.39c.33-.74.15-1.58-.48-2.04-.63-.46-1.5-.38-2.04.2a6.22 6.22 0 0 0-1.28 2.43c-.12.4-.17.8-.17 1.2 0 .2.01.4.04.6.2 1.32 1.16 2.4 2.43 2.76.33.1.67.14 1.01.14.85 0 1.68-.32 2.32-.9.56-.5.7-1.34.32-1.99-.38-.66-1.17-.94-1.9-.7-.15.05-.3.05-.44-.01-.15-.06-.25-.18-.3-.33-.04-.15 0-.31.1-.43.2-.24.34-.54.45-.86z"/>
+                            <path fill="#F6A623" d="M27.18 4.96c-.7-.93-1.92-1.2-2.91-.65-.5.28-.87.72-1.07 1.25-.2.53-.18 1.12.05 1.64.23.52.66.92 1.18 1.11.52.18 1.1.14 1.59-.12.98-.51 1.4-1.67.95-2.7-.07-.17-.16-.33-.27-.48l.48-.05z"/>
+                            <path fill="#E6162D" d="M16.02 9.42c-4.43-.44-8.27 1.57-8.56 4.48-.3 2.9 3.08 5.62 7.51 6.05 4.43.44 8.27-1.57 8.56-4.48.3-2.9-3.08-5.62-7.51-6.05z"/>
+                            <path fill="#FFF" d="M14.57 16.1c-.92-.29-1.42-1.01-1.14-1.66.28-.64 1.14-.96 2.07-.77.92.19 1.46.83 1.23 1.49-.24.66-1.15 1-2.16.94zm2.86-1.52c-.22-.71.18-1.39.91-1.57.74-.18 1.43.25 1.55.96.12.72-.27 1.42-1.01 1.6-.74.18-1.4-.23-1.45-.99z"/>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" title="切换主题">🌙</button>
+        </div>
+    </header>
+
+    <!-- Hero Dashboard -->
+    <section class="dashboard">
+        <div class="dashboard-card">
+            <div class="dashboard-title" style="justify-content: space-between;">
+                <span>⭐ 每日必看</span>
+                <span style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span id="dashUpdated" style="font-size: 0.7rem; opacity: 0.7;">更新中...</span>
+                    <button id="dashRefresh" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 0.25rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.72rem; font-weight: 600;">🔄 刷新</button>
+                </span>
+            </div>
+            <div class="dashboard-grid" id="dashboardGrid">
+                <div class="dash-item">
+                    <div class="dash-label">₿ BTC/USD</div>
+                    <div class="dash-value price" id="dashBtcPrice">-</div>
+                </div>
+                <div class="dash-item">
+                    <div class="dash-label">📊 24h 涨跌</div>
+                    <div class="dash-value change" id="dashBtcChange">-</div>
+                </div>
+                <div class="dash-item">
+                    <div class="dash-label">🧱 区块高度</div>
+                    <div class="dash-value" id="dashBlockHeight">-</div>
+                </div>
+                <div class="dash-item">
+                    <div class="dash-label">😱 恐惧贪婪</div>
+                    <div class="dash-value" id="dashFearGreed">-</div>
+                </div>
+                <div class="dash-item">
+                    <div class="dash-label">⏳ 减半倒计时</div>
+                    <div class="dash-value" id="dashHalving">-</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-card" id="sidebarNav"></div>
+        </aside>
+        <main id="mainContent"></main>
+    </div>
+
+    <footer>
+        <p>© 2026 <strong>比特币资源导航站(南宫远版)</strong> &middot; btc.ngy123.com &middot; Bitcoin Only</p>
+        <p style="margin-top: 0.3rem; font-size: 0.75rem;">数据来源：CoinGecko / mempool.space / Alternative.me</p>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+    // ============ 导航数据 ============
+    const CATEGORIES = [
+        { id: 'official',    icon: '📖', name: '推荐',     file: 'data/official.json',    featured: true },
+        { id: 'learning',    icon: '🎓', name: '学习',     file: 'data/learning.json',    featured: true },
+        { id: 'news_sites',  icon: '📰', name: '新闻',     file: 'data/news.json',        featured: true },
+        { id: 'market',      icon: '📈', name: '行情',     file: 'data/market.json',      featured: true },
+        { id: 'explorers',   icon: '🔍', name: '浏览器',   file: 'data/explorers.json',   featured: true },
+        { id: 'analytics',   icon: '📊', name: '链上数据', file: 'data/analytics.json',   featured: true },
+        { id: 'wallets',     icon: '👛', name: '钱包',     file: 'data/wallets.json',     featured: true },
+        { id: 'lightning',   icon: '⚡', name: 'Lightning', file: 'data/lightning.json',   featured: true },
+        { id: 'mining',      icon: '⛏️', name: '矿业',     file: 'data/mining.json',      featured: true },
+        { id: 'companies',   icon: '🏢', name: '公司',     file: 'data/companies.json',   featured: true },
+        { id: 'developers',  icon: '💻', name: '开发',     file: 'data/developers.json',  featured: true },
+        { id: 'opensource',  icon: '🔧', name: '开源项目', file: 'data/opensource.json',  featured: true },
+        { id: 'people',      icon: '👤', name: '人物',     file: 'data/people.json',      featured: false, type: 'people' },
+        { id: 'books',       icon: '📚', name: '书籍',     file: 'data/books.json',       featured: false, type: 'books' },
+        { id: 'tools',       icon: '🛠️', name: '工具',     file: 'data/tools.json',       featured: false },
+        { id: 'podcasts',    icon: '🎙️', name: '播客',     file: 'data/podcasts.json',    featured: false },
+        { id: 'youtube',     icon: '▶️', name: 'YouTube',  file: 'data/youtube.json',    featured: false },
+        { id: 'conferences', icon: '🎪', name: '会议',     file: 'data/conferences.json', featured: false },
+        { id: 'blogs',       icon: '📝', name: '博客',     file: 'data/blogs.json',       featured: false },
+        { id: 'friends',     icon: '🔗', name: '友情链接', file: 'data/friends.json',     featured: false }
+    ];
+
+    // ============ Dashboard 实时数据 ============
+    // 多数据源自动降级，确保国内可访问
+    async function fetchBTCPrice() {
+        const sources = [
+            // CoinGecko 免费 API（国内一般可访问）
+            async () => {
+                const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+                const data = await res.json();
+                return { price: data.bitcoin.usd, change: data.bitcoin.usd_24h_change };
+            },
+            // Binance 公开 API
+            async () => {
+                const res = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT');
+                const data = await res.json();
+                return { price: parseFloat(data.lastPrice), change: parseFloat(data.priceChangePercent) };
+            },
+            // OKX
+            async () => {
+                const res = await fetch('https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT');
+                const data = await res.json();
+                if (data.data && data.data[0]) {
+                    const price = parseFloat(data.data[0].last);
+                    const open = parseFloat(data.data[0].open24h);
+                    const change = ((price - open) / open * 100);
+                    return { price, change };
+                }
+                throw new Error('OKX数据格式错误');
+            }
+        ];
+
+        for (const sourceFn of sources) {
+            try {
+                const result = await sourceFn();
+                if (result && result.price) return result;
+            } catch(e) { console.log('价格源尝试失败，切换下一个'); }
+        }
+        return null;
+    }
+
+    async function fetchDashboard() {
+        // 1. BTC 价格（多源降级）
+        try {
+            const btc = await fetchBTCPrice();
+            if (btc) {
+                const el = document.getElementById('dashBtcPrice');
+                el.innerText = '$' + btc.price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                el.style.opacity = '1';
+                const changeEl = document.getElementById('dashBtcChange');
+                changeEl.innerText = (btc.change >= 0 ? '+' : '') + btc.change.toFixed(2) + '%';
+                changeEl.className = 'dash-value change ' + (btc.change >= 0 ? 'change-up' : 'change-down');
+            }
+        } catch(e) {
+            document.getElementById('dashBtcPrice').style.opacity = '0.5';
+        }
+
+        // 2. 区块高度（多节点降级）
+        const mempoolMirrors = [
+            'https://mempool.space',
+            'https://mempool.bisq.services',
+            'https://bitcoin.explorer.deanmlittle.com'
+        ];
+
+        let heightOk = false;
+
+        for (const mirror of mempoolMirrors) {
+            try {
+                const ctrl = new AbortController();
+                const t = setTimeout(() => ctrl.abort(), 4000);
+                const res = await fetch(mirror + '/api/blocks/tip/height', { signal: ctrl.signal });
+                clearTimeout(t);
+                const height = await res.text();
+                document.getElementById('dashBlockHeight').innerText = parseInt(height).toLocaleString();
+                heightOk = true;
+                break;
+            } catch(e) {}
+        }
+
+        if (!heightOk) {
+            const halvingDate = new Date('2024-04-20');
+            const blocksSince = Math.floor((Date.now() - halvingDate) / (1000 * 60 * 10));
+            document.getElementById('dashBlockHeight').innerText = '≈' + (840000 + blocksSince).toLocaleString();
+        }
+
+        // 3. 恐惧贪婪指数
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+            const fgRes = await fetch('https://api.alternative.me/fng/?limit=1', { signal: controller.signal });
+            clearTimeout(timeoutId);
+            const fgData = await fgRes.json();
+            if (fgData.data && fgData.data[0]) {
+                const fg = fgData.data[0];
+                document.getElementById('dashFearGreed').innerText = fg.value + ' — ' + fg.value_classification;
+            }
+        } catch(e) {
+            document.getElementById('dashFearGreed').innerText = '获取中...';
+        }
+
+        // 5. 减半倒计时
+        const halvingDate = new Date('2028-03-25');
+        const now = new Date();
+        const diffMs = halvingDate - now;
+        if (diffMs > 0) {
+            const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+            document.getElementById('dashHalving').innerText = '~' + days + ' 天';
+        } else {
+            document.getElementById('dashHalving').innerText = '已减半 ✅';
+        }
+    }
+
+    // 刷新时间戳
+    function updateTimestamp() {
+        const now = new Date();
+        document.getElementById('dashUpdated').innerText = '更新于 ' + now.toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    }
+
+    async function fetchDashboardWithStamp() {
+        updateTimestamp();
+        await fetchDashboard();
+        updateTimestamp();
+    }
+
+    fetchDashboardWithStamp();
+    setInterval(fetchDashboardWithStamp, 60000);
+
+    // 手动刷新按钮
+    document.getElementById('dashRefresh').addEventListener('click', () => {
+        document.getElementById('dashUpdated').innerText = '刷新中...';
+        fetchDashboardWithStamp();
+    });
+
+    // ============ 渲染导航 ============
+    async function loadAndRender() {
+        const main = document.getElementById('mainContent');
+        const sidebar = document.getElementById('sidebarNav');
+
+        // 渲染侧边栏
+        let sidebarHtml = '<h2>📂 资源分类</h2><ul>';
+        CATEGORIES.forEach(cat => {
+            sidebarHtml += `<li><a href="#${cat.id}">${cat.icon} ${cat.name}</a></li>`;
+        });
+        sidebarHtml += '</ul>';
+        document.getElementById('sidebarNav').innerHTML = sidebarHtml;
+
+        // 按序加载并渲染每个分类
+        const renderPromises = CATEGORIES.map(async (cat, idx) => {
+            try {
+                const res = await fetch(cat.file);
+                const data = await res.json();
+                return { cat, data, idx };
+            } catch(e) {
+                console.warn('加载失败:', cat.file, e);
+                return { cat, data: [], idx };
+            }
+        });
+
+        const results = await Promise.all(renderPromises);
+        results.sort((a, b) => a.idx - b.idx);
+
+        let html = '';
+        results.forEach(({ cat, data }) => {
+            if (!data.length) return;
+
+            let itemsHtml = '';
+            if (cat.type === 'people') {
+                itemsHtml = `<ul class="people-grid">${data.map(p => `
+                    <li class="person-card">
+                        <div class="person-name">${p.name}${p.en ? ' <span style="font-size:0.8rem;color:var(--text-muted)">(' + p.en + ')</span>' : ''}</div>
+                        <div class="person-role">${p.role}</div>
+                        <div class="person-desc">${p.desc}</div>
+                    </li>`).join('')}</ul>`;
+            } else if (cat.type === 'books') {
+                itemsHtml = `<ul class="book-grid">${data.map(b => {
+                    if (b.url) {
+                        return `<a href="${b.url}" target="_blank" rel="noopener" class="book-card">
+                            <div class="book-title">${b.title}</div>
+                            <div class="book-author">${b.author}</div>
+                            <div class="book-desc">${b.desc}</div>
+                        </a>`;
+                    }
+                    return `<li class="book-card">
+                        <div class="book-title">${b.title}</div>
+                        <div class="book-author">${b.author}</div>
+                        <div class="book-desc">${b.desc}</div>
+                    </li>`;
+                }).join('')}</ul>`;
+            } else {
+                itemsHtml = `<ul>${data.map(link => `
+                    <li><a href="${link.url}" target="_blank" rel="noopener noreferrer">
+                        <span class="site-title">${link.title}</span>
+                        <span class="site-desc">${link.desc}</span>
+                    </a></li>`).join('')}</ul>`;
+            }
+
+            html += `
+                <section class="category" id="${cat.id}">
+                    <div class="category-header">
+                        <span class="category-icon">${cat.icon}</span>
+                        <h2>${cat.name}</h2>
+                        <span class="badge">${data.length} 项</span>
+                    </div>
+                    ${itemsHtml}
+                </section>`;
+        });
+
+        main.innerHTML = html;
+
+        // 重新绑定侧边栏点击
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadAndRender();
+
+        // 搜索
+        document.getElementById('searchForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+            const engine = document.getElementById('searchEngine').value;
+            const urls = {
+                google: `https://www.google.com/search?q=${encodeURIComponent(query + ' bitcoin')}`,
+                bing: `https://www.bing.com/search?q=${encodeURIComponent(query + ' bitcoin')}`,
+                baidu: `https://www.baidu.com/s?wd=${encodeURIComponent(query + ' 比特币')}`
+            };
+            window.open(urls[engine], '_blank');
+        });
+
+        // 主题切换
+        const themeToggle = document.getElementById('themeToggle');
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+        }
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            document.body.setAttribute('data-theme', isDark ? '' : 'dark');
+            themeToggle.textContent = isDark ? '🌙' : '☀️';
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        });
+
+        // 恢复保存的主题
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+        }
+
+        // 滚动返回顶部
+        window.addEventListener('scroll', () => {
+            document.getElementById('scrollTop').classList.toggle('visible', window.pageYOffset > 300);
+        });
+        document.getElementById('scrollTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+    </script>
+</body>
+</html>
